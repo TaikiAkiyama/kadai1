@@ -1,0 +1,58 @@
+#!/usr/bin/bash -xv
+# SPDX-FileCopyrightText: 2025 Taiki Akiyama
+# SPDX-License-Identifier: BSD-3-Clause
+
+ng (){
+     echo ${1}
+     res=1
+}
+
+res=0
+
+###NORMAL INPUT### 
+out=$(seq 5 | ./calc sum)
+[ "${out}" == 15 ] || ng "$LINENO"
+
+out=$(seq 5 | ./calc avg)
+[ "${out}" == 3.0 ] || ng "$LINENO"
+
+out=$(seq 5 | ./calc max)
+[ "${out}" == 5 ] || ng "$LINENO"
+
+out=$(seq 5 | ./calc min)
+[ "${out}" == 1 ] || ng "$LINENO"
+
+out=$(seq 5 | ./calc count)
+[ "${out}" == 5 ] || ng "$LINENO"
+
+out=$(./calc -h)
+[ "$?" == 0 ] || ng "$LINENO"
+
+out=$(./calc --help)
+[ "$?" == 0 ] || ng "$LINENO"
+
+
+###STRENGE INPUT###
+out=$(./calc)
+[ "$?" != 0 ] || ng "$LINENO"
+[ "${out}" == "" ] || ng "$LINENO"
+
+out=$(seq 5 | ./calc abc)
+[ "$?" != 0 ] || ng "$LINENO"
+[ "${out}" == "" ] || ng "$LINENO"
+
+out=$(echo | ./calc count)
+[ "$?" != 0 ] || ng "$LINENO"
+[ "${out}" == "" ] || ng "$LINENO"
+
+out=$(echo あ | ./calc count)
+[ "$?" != 0 ] || ng "$LINENO"
+[ "${out}" == "" ] || ng "$LINENO" 
+
+out=$(echo a | ./calc count)
+[ "$?" != 0 ] || ng "$LINENO"
+[ "${out}" == "" ] || ng "$LINENO"
+
+
+[ "${res}" == 0 ] && echo OK
+exit $res
