@@ -1,6 +1,6 @@
 # kadai1
 2025ロボットシステム学
-![test](https://github.com/TaikiAkiyama/kadai1/blob/main/.github/workflows/test.yml)
+![test](https://github.com/TaikiAkiyama/kadai1/actions/workflows/test.yml/badge.svg)
 ## 必要なソフトウェア
 - Python
   - テスト済みバージョン: 3.7~3.12
