@@ -1,0 +1,46 @@
+#!/home/akiyama8192/anaconda3/bin/python3
+# SPDX-FileCopyrightText: 2025 Taiki Akiyama
+# SPDX-License-Identifier: BSD-3-Clause
+
+import sys
+import argparse
+
+def process_input(operation):
+    numbers = []
+    for line in sys.stdin:
+            numbers.append(float(line.strip()))
+
+    if operation == 'sum':
+        result = sum(numbers)
+    elif operation == 'avg':
+        result = sum(numbers) / len(numbers)
+    elif operation == 'max':
+        result = max(numbers)
+    elif operation == 'min':
+        result = min(numbers)
+    elif operation == 'count':
+        result = len(numbers)
+    return result
+
+def run():
+    parser = argparse.ArgumentParser(
+        description="標準入力から受け取った数値データの統計（合計、平均など）を計算します。"
+    )
+    
+    parser.add_argument(
+        'operation', 
+        choices=['sum', 'avg', 'min', 'max', 'count'], 
+        help="実行する操作 (sum: 合計, avg: 平均, min: 最小値, max: 最大値, count: 件数)"
+    )
+    
+    args = parser.parse_args()
+    
+    result = process_input(args.operation)
+    
+    if result is not None:
+        print(result)
+    else:
+        sys.exit(1)
+
+if __name__ == "__main__":
+    run()
