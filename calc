@@ -31,7 +31,7 @@ def run():
     parser.add_argument(
         'operation', 
         choices=['sum', 'avg', 'min', 'max', 'count'],
-        help="実行する操作 (sum: 合計, avg: 平均, min: 最小値, max: 最大値, count: 個数)"
+        help="実行する操作 (sum: 合計値, avg: 平均値, min: 最小値, max: 最大値, count: 個数)"
     )
     
     args = parser.parse_args()
