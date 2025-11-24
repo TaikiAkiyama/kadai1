@@ -13,7 +13,6 @@ res=0
 out=$(seq 5 | ./calc sum)
 [ "${out}" == 15 ] || ng "$LINENO"
 
-<<<<<<< HEAD
 out=$(seq 5 | ./calc avg)
 [ "${out}" == 3.0 ] || ng "$LINENO"
 
@@ -26,7 +25,6 @@ out=$(seq 5 | ./calc min)
 out=$(seq 5 | ./calc count)
 [ "${out}" == 5 ] || ng "$LINENO"
 
-=======
 out=$(seq 5 | sed 's/$/.1/' | ./calc sum)
 [ "${out}" == 15.5 ] || ng "$LINENO"
 
@@ -54,7 +52,6 @@ out=$(seq 5 | ./calc count)
 out=$(seq 5 | sed 's/$/.1/' | ./calc count)
 [ "${out}" == 5 ] || ng "$LINENO"
 
->>>>>>> dev
 out=$(./calc -h)
 [ "$?" == 0 ] || ng "$LINENO"
 
