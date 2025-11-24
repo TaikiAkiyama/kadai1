@@ -11,7 +11,11 @@ def process_input(operation):
         try:
             numbers.append(int(line.strip()))
         except:
+<<<<<<< HEAD
             numbers.append(int(line.strip()))
+=======
+            numbers.append(float(line.strip()))
+>>>>>>> dev
 
     if operation == 'sum':
         result = sum(numbers)
