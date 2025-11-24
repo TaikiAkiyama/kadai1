@@ -19,13 +19,25 @@ out=$(seq 5 | sed 's/$/.1/' | ./calc sum)
 out=$(seq 5 | ./calc avg)
 [ "${out}" == 3.0 ] || ng "$LINENO"
 
+out=$(seq 5 | sed 's/$/.1/' | ./calc avg)
+[ "${out}" == 3.1 ] || ng "$LINENO"
+
 out=$(seq 5 | ./calc max)
 [ "${out}" == 5 ] || ng "$LINENO"
+
+out=$(seq 5 | sed 's/$/.1/' | ./calc max)
+[ "${out}" == 5.1 ] || ng "$LINENO"
 
 out=$(seq 5 | ./calc min)
 [ "${out}" == 1 ] || ng "$LINENO"
 
+out=$(seq 5 | sed 's/$/.1/' | ./calc min)
+[ "${out}" == 1.1 ] || ng "$LINENO"
+
 out=$(seq 5 | ./calc count)
+[ "${out}" == 5 ] || ng "$LINENO"
+
+out=$(seq 5 | sed 's/$/.1/' | ./calc count)
 [ "${out}" == 5 ] || ng "$LINENO"
 
 out=$(./calc -h)
