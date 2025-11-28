@@ -1,5 +1,5 @@
-# kadai1
-2025ロボットシステム学
+# robosys2025
+2025ロボットシステム学 課題1
 
 ![test](https://github.com/TaikiAkiyama/kadai1/actions/workflows/test.yml/badge.svg)
 
@@ -10,7 +10,7 @@ calcコマンドは、標準入力から受け取った統計データの合計�
 - リポジトリをコピーしたいディレクトリでクローンしてください。
 
 ```
-$ git clone https://github.com/TaikiAkiyama/kadai1.git
+$ git clone https://github.com/TaikiAkiyama/robosys2025.git
 ```
 - kadai1に移動すると実行できます。
 ```
