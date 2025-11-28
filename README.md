@@ -12,9 +12,9 @@ calcコマンドは、標準入力から受け取った統計データの合計�
 ```
 $ git clone https://github.com/TaikiAkiyama/robosys2025.git
 ```
-- kadai1に移動すると実行できます。
+- robosys2025に移動すると実行できます。
 ```
-$ cd kadai1
+$ cd robosys2025
 ```
 
 ## 必要なソフトウェア
