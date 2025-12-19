@@ -10,38 +10,38 @@ ng (){
 res=0
 
 ###NOMAL INPUT###
-out=$(echo 10 | ./nabeatu)
+out=$(echo 10 | ./funny_count)
 [ "${out}" == $'3\n6\n9' ] || ng "$LINENO"
 
-out=$(echo 10 | ./nabeatu | wc -l)
+out=$(echo 10 | ./funny_count | wc -l)
 [ "${out}" == 3 ] || ng "$LINENO"
 
-out=$(echo 1 | ./nabeatu)
+out=$(echo 1 | ./funny_count)
 [ "${out}" == '' ] || ng "$LINENO"
 
-out=$(echo 10.1 | ./nabeatu)
+out=$(echo 10.1 | ./funny_count)
 [ "$?" != 0 ] || ng "$LINENO"
 
 ###STRENGE INPUT###
-out=$(echo 10.1 | ./nabeatu)
+out=$(echo 10.1 | ./funny_count)
 [ "$?" != 0 ] || ng "$LINENO"
 
-out=$(echo | ./nabeatu)
+out=$(echo | ./funny_count)
 [ "$?" != 0 ] || ng "$LINENO"
 
-out=$(echo 10 11| ./nabeatu)
+out=$(echo 10 11| ./funny_count)
 [ "$?" != 0 ] || ng "$LINENO"
 
-out=$(echo abc | ./nabeatu)
+out=$(echo abc | ./funny_count)
 [ "$?" != 0 ] || ng "$LINENO"
 
-out=$(echo あ | ./nabeatu)
+out=$(echo あ | ./funny_count)
 [ "$?" != 0 ] || ng "$LINENO"
   
-out=$(echo -10 | ./nabeatu)
+out=$(echo -10 | ./funny_count)
 [ "$?" != 0 ] || ng "$LINENO"
 
-out=$(echo 0 | ./nabeatu)
+out=$(echo 0 | ./funny_count)
 [ "$?" != 0 ] || ng "$LINENO"
 
 [ "${res}" == 0 ] && echo OK
