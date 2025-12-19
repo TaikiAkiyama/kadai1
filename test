@@ -9,6 +9,7 @@ ng (){
 
 res=0
 
+###NOMAL INPUT###
 out=$(echo 10 | ./nabeatu)
 [ "${out}" == $'3\n6\n9' ] || ng "$LINENO"
 
@@ -18,14 +19,29 @@ out=$(echo 10 | ./nabeatu | wc -l)
 out=$(echo 1 | ./nabeatu)
 [ "${out}" == '' ] || ng "$LINENO"
 
-
 out=$(echo 10.1 | ./nabeatu)
+[ "$?" != 0 ] || ng "$LINENO"
+
+###STRENGE INPUT###
+out=$(echo 10.1 | ./nabeatu)
+[ "$?" != 0 ] || ng "$LINENO"
+
+out=$(echo | ./nabeatu)
+[ "$?" != 0 ] || ng "$LINENO"
+
+out=$(echo 10 11| ./nabeatu)
 [ "$?" != 0 ] || ng "$LINENO"
 
 out=$(echo abc | ./nabeatu)
 [ "$?" != 0 ] || ng "$LINENO"
 
 out=$(echo あ | ./nabeatu)
+[ "$?" != 0 ] || ng "$LINENO"
+  
+out=$(echo -10 | ./nabeatu)
+[ "$?" != 0 ] || ng "$LINENO"
+
+out=$(echo 0 | ./nabeatu)
 [ "$?" != 0 ] || ng "$LINENO"
 
 [ "${res}" == 0 ] && echo OK

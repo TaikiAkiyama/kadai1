@@ -4,8 +4,16 @@
 
 import sys
 
-line = input()
-n = int(line)
+try:
+    line = input()
+    n = int(line)
+except ValueError:
+    print("対応していません", file=sys.stderr)
+    sys.exit(1)
+
+if n < 0 or n == 0:
+    print("ナベアツは1から数えます。1以上の整数にしてください", file=sys.stderr)
+    sys.exit(1)
 
 x = 0
 
