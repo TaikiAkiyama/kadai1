@@ -13,4 +13,4 @@ jobs:
         chmod +x ./nabeatu
         chmod +x ./test
 
-        bash -xv ./nabeatu
+        bash -xv ./test
