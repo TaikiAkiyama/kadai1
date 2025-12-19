@@ -9,65 +9,25 @@ ng (){
 
 res=0
 
-###NORMAL INPUT### 
-out=$(seq 5 | ./calc sum)
-[ "${out}" == 15 ] || ng "$LINENO"
+out=$(echo 10 | ./nabeatu)
+[ "${out}" == $'3\n6\n9' ] || ng "$LINENO"
 
-out=$(seq 5 | sed 's/$/.1/' | ./calc sum)
-[ "${out}" == 15.5 ] || ng "$LINENO"
+out=$(echo 10 | ./nabeatu | wc -l)
+[ "${out}" == 3 ] || ng "$LINENO"
 
-out=$(seq 5 | ./calc avg)
-[ "${out}" == 3.0 ] || ng "$LINENO"
+out=$(echo 1 | ./nabeatu)
+[ "${out}" == '' ] || ng "$LINENO"
 
-out=$(seq 5 | sed 's/$/.1/' | ./calc avg)
-[ "${out}" == 3.1 ] || ng "$LINENO"
-
-out=$(seq 5 | ./calc max)
-[ "${out}" == 5 ] || ng "$LINENO"
-
-out=$(seq 5 | sed 's/$/.1/' | ./calc max)
-[ "${out}" == 5.1 ] || ng "$LINENO"
-
-out=$(seq 5 | ./calc min)
-[ "${out}" == 1 ] || ng "$LINENO"
-
-out=$(seq 5 | sed 's/$/.1/' | ./calc min)
-[ "${out}" == 1.1 ] || ng "$LINENO"
-
-out=$(seq 5 | ./calc count)
-[ "${out}" == 5 ] || ng "$LINENO"
-
-out=$(seq 5 | sed 's/$/.1/' | ./calc count)
-[ "${out}" == 5 ] || ng "$LINENO"
-
-out=$(./calc -h)
-[ "$?" == 0 ] || ng "$LINENO"
-
-out=$(./calc --help)
-[ "$?" == 0 ] || ng "$LINENO"
-
-
-###STRENGE INPUT###
-out=$(./calc)
+out=$(echo 10.1 | ./nabeatu)
 [ "$?" != 0 ] || ng "$LINENO"
-[ "${out}" == "" ] || ng "$LINENO"
 
-out=$(seq 5 | ./calc abc)
+
+out=$(echo abc | ./nabeatu)
 [ "$?" != 0 ] || ng "$LINENO"
-[ "${out}" == "" ] || ng "$LINENO"
 
-out=$(echo | ./calc count)
+
+out=$(echo あ | ./nabeatu)
 [ "$?" != 0 ] || ng "$LINENO"
-[ "${out}" == "" ] || ng "$LINENO"
-
-out=$(echo あ | ./calc count)
-[ "$?" != 0 ] || ng "$LINENO"
-[ "${out}" == "" ] || ng "$LINENO" 
-
-out=$(echo a | ./calc count)
-[ "$?" != 0 ] || ng "$LINENO"
-[ "${out}" == "" ] || ng "$LINENO"
-
-
+  
 [ "${res}" == 0 ] && echo OK
 exit $res
