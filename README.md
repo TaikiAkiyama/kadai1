@@ -10,16 +10,9 @@ funny_countコマンドは、数字nを標準入力から受け取り、1~nま�
 funny_countコマンドはコメディアンである桂三度(世界のナベアツ)氏のネタ「3の倍数と3を含む数字の時だけアホになる」にインスパイアされて作成されました。
 
 ## インストール方法
-- リポジトリをコピーしたいディレクトリでクローンしてください。
 ```
 $ git clone https://github.com/TaikiAkiyama/robosys2025.git
-```
-- robosys2025に移動してください。
-```
 $ cd robosys2025
-```
-- 実行できます。
-```
 $ ./funny_count
 ```
 
@@ -48,7 +41,7 @@ $ echo 13 | ./funny_count | wc -l
 
 ## ライセンス
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
-- このパッケージのtestコードは，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです．
-    - [ryuichiueda/my_slides robosys_2025](https://github.com/ryuichiueda/slides_marp/blob/master/robosys2025/lesson6.md) 
+- このパッケージのtestファイルのコード(test)は，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです．
+    - [第6回: ソフトウェアのテスト](https://github.com/ryuichiueda/slides_marp/blob/master/robosys2025/lesson6.md) 
 - © 2025 Taiki Akiyama
 
